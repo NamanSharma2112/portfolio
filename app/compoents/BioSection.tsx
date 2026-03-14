@@ -1,9 +1,12 @@
 "use client"
-/**
- * BioLink — Inline hyperlink styled to match the original site:
- * same text color, subtle underline that brightens on hover.
- */
-export function BioLink({ href = "#", children }) {
+
+import { ReactNode } from "react";
+type BioLinkProps = {
+  href?: string;
+  children: ReactNode;
+};
+
+export function BioLink({ href = "#", children }: BioLinkProps) {
   return (
     <a
       href={href}
@@ -23,10 +26,7 @@ export function BioLink({ href = "#", children }) {
   );
 }
 
-/**
- * BioSection — The introductory paragraph block.
- * Replace the placeholder text and links with your own content.
- */
+
 export default function BioSection() {
   const p = {
     fontSize: "14px",

@@ -1,16 +1,7 @@
 import NewBadge from "./Newbadge";
 
-/**
- * WritingRow — One entry in the writing list.
- *
- * Props:
- *   year    — Year string ("2026") shown only on the first row of each year group. Pass null/undefined to hide.
- *   title   — Article title
- *   date    — Display date string, e.g. "16/02"
- *   isNew   — Whether to show the hand-drawn "New" badge
- *   href    — Link URL for the article (optional, defaults to "#")
- */
-export default function WritingRow({ year, title, date, isNew = false, href = "#" }) {
+type Props = { year?: string | null; title: string; date: string; isNew?: boolean; href?: string };
+export default function WritingRow({ year, title, date, isNew = false, href = "#" }: Props) {
   return (
     <div
       className="grid items-center py-2.75 border-b"

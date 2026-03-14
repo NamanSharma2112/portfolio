@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
-
+type Props = { timezone?: string; locationName?: string };
 /**
  * LiveClock — Ticking local-time display for the footer.
  *
