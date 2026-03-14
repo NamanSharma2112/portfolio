@@ -9,7 +9,7 @@ export default function ProfileHeader({ name = "Your Name", updatedDate = "Mar 1
   return (
     <header className="mb-7">
       <p
-        className="text-[14.5px] font-normal m-0 mb-[3px]"
+        className="text-[14.5px] font-normal m-0 mb-0.75"
         style={{ color: "#1C1C1C", letterSpacing: "-0.01em" }}
       >
         {name}
