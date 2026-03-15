@@ -1,12 +1,22 @@
 "use client"
 
 import { useState, useEffect } from "react";
-type Props = { timezone?: string; locationName?: string };
 
-export default function LiveClock({ timezone = "America/Los_Angeles", locationName = "Los Angeles, California" }) {
+type Props = {
+  timezone?: string;
+  locationName?: string;
+};
+
+export default function LiveClock({
+  timezone = "America/Los_Angeles",
+  locationName = "Los Angeles, California",
+}: Props) {
   const [timeStr, setTimeStr] = useState("");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     function formatTime() {
       const now = new Date();
 
@@ -21,9 +31,15 @@ export default function LiveClock({ timezone = "America/Los_Angeles", locationNa
     }
 
     setTimeStr(formatTime());
-    const interval = setInterval(() => setTimeStr(formatTime()), 1000);
+
+    const interval = setInterval(() => {
+      setTimeStr(formatTime());
+    }, 1000);
+
     return () => clearInterval(interval);
   }, [timezone]);
+
+  if (!mounted) return null;
 
   return (
     <span>
